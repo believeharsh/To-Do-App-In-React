@@ -21,10 +21,18 @@ const TaskProvider = ({children}) => {
       };
      setTasks([...Tasks, newTask])
    }
+   const deleteTask = (taskid) => {
+     const filteredTasks = Tasks.filter((task) => task.id !== taskid);
+     setTasks(filteredTasks)
+   }
+
+   const EditTask = (taskId , newTask) => {
+    setTasks(Tasks.map((task) => task.id === taskId ? {...task , text: newTask} : task ))
+   }
 
 
   return (
-   <TaskContext.Provider value={{Tasks, setTasks , addTask}}>
+   <TaskContext.Provider value={{Tasks, setTasks , addTask , EditTask , deleteTask}}>
       {children}
    </TaskContext.Provider>
   )
