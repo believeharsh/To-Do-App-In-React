@@ -4,7 +4,7 @@
 
 Welcome to this Reac to-do-app, your daily tool for saving your tasks at your localhost! 📚
 
-You can also check out the live demo of the website [here](https://searchbooks.vercel.app/).
+You can also check out the live demo of the website at [here](https://searchbooks.vercel.app/).
 
 
 ## Technologies Used

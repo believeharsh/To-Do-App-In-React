@@ -15,7 +15,7 @@ const Navbar = () => {
               className="flex-none text-xl font-semibold dark:text-white"
               href="#"
             >
-              To-Do React app
+              To-Do React app :::
             </a>
             <div className="sm:hidden">
               <button
