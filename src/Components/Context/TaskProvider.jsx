@@ -9,13 +9,25 @@ const TaskProvider = ({ children }) => {
     { id: uuidv4(), text: "Coding", completed: false },
     { id: uuidv4(), text: "React Router Dom ", completed: false },
   ];
-  const [Tasks, setTasks] = useState(InitialTasks);
+  const [Tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return !savedTasks || JSON.parse(savedTasks).length === 0
+      ? InitialTasks
+      : JSON.parse(savedTasks);
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(Tasks));
+  }, [Tasks]);
 
   const addTask = (task) => {
-    const Inlowercase = task.toLowerCase()
+    const Inlowercase = task.toLowerCase();
+    // let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     if (task.trim() !== "") {
       // Check if the task already exists in the state
-      const alreadyExists = Tasks.some((existingTask) => existingTask.text.toLowerCase() === Inlowercase);
+      const alreadyExists = Tasks.some(
+        (existingTask) => existingTask.text.toLowerCase() === Inlowercase
+      );
       if (!alreadyExists) {
         // Create a new task object
         const newTask = {
@@ -23,6 +35,7 @@ const TaskProvider = ({ children }) => {
           text: task,
           completed: false,
         };
+
         // Add the new task to the state
         setTasks([...Tasks, newTask]);
       } else {
@@ -31,9 +44,8 @@ const TaskProvider = ({ children }) => {
     } else {
       alert("Input field can't be empty");
     }
-    console.log(Tasks)
+    // console.log(Tasks)
   };
-
 
   const deleteTask = (taskid) => {
     const filteredTasks = Tasks.filter((task) => task.id !== taskid);

@@ -64,9 +64,7 @@ const Tasklist = () => {
                     </div>
                   ) : (
                     <span
-                      className={`cursor-pointer ${
-                        task.completed ? "line-through text-gray-500" : ""
-                      }`}
+                      className={`cursor-pointer ${task.completed ? "line-through text-gray-500" : ""} line-clamp-2`}
                       onClick={() => toggleTaskCompletion(task.id)}
                     >
                       {task.text}

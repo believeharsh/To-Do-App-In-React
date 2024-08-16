@@ -6,4 +6,4 @@ const UseTask = () => {
   return {Tasks, setTasks, addTask , EditTask , deleteTask}
 }
 
-export default UseTask
+export default UseTask ; 
