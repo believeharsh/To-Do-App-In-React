@@ -1,6 +1,7 @@
 import React from "react";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -64,7 +65,9 @@ const Navbar = () => {
             className="hidden transition-all duration-[0.1ms] overflow-hidden basis-full grow sm:block"
           >
             <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-            <a href="https://www.instagram.com/bontinue_/" target="_blank"><IoLogoInstagram className="text-black dark:text-white text-3xl font-bold " /></a> 
+              {/* <a href="https://www.instagram.com/bontinue_/" target="_blank">
+                <IoLogoInstagram className="text-black dark:text-white text-3xl font-bold " />
+              </a>
               <a href="https://github.com/believeharsh" target="_blank">
                 <FaGithub className="text-black dark:text-white text-3xl font-bold " />
               </a>
@@ -75,9 +78,18 @@ const Navbar = () => {
                 <FaLinkedin
                   className="text-black dark:text-white text-3xl font-bold 
     "
-                />
-              </a>
-           
+                /> */}
+              {/* </a> */}
+              <div className="task-types">
+              <Link to="/" className="">Today</Link>
+                
+              </div>
+              <div className="task-types">
+              <Link to="/important" className="">Important</Link>
+              </div>
+              <div className="task-types">
+              <Link to="/missing" className="">Missing</Link>
+              </div>
             </div>
           </div>
         </nav>

@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import UseTask from "../Context/UseTask";
+// import UseTask from "../Context/UseTask";
 import { FaPlus } from "react-icons/fa";
-const AddNewTask = () => {
-  const { addTask } = UseTask();
+const AddNewTask = ({addTask}) => {
+  // const { addTask } = UseTask();
 
   const [inputValue, setinputValue] = useState("");
 

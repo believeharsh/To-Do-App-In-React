@@ -1,12 +1,11 @@
 import React from "react";
-import TodayUseTask from "../Context/TodayTasks/TodayUseTask";
-
+import MissingUseTask from "../Context/MissingTasks/MissingUseTask";
 import { useState, useRef } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 
-const Tasklist = () => {
-  const { Tasks, setTasks, EditTask, deleteTask } = TodayUseTask();
+const MissingTasklist = () => {
+  const { Tasks, setTasks, EditTask, deleteTask } = MissingUseTask();
   const [EditTaskId, setEditTaskId] = useState(null);
   const [EditedTaskText, setEditedTaskText] = useState("");
   const inputRef = useRef(null);
@@ -65,7 +64,7 @@ const Tasklist = () => {
                     </div>
                   ) : (
                     <span
-                      className={`cursor-pointer ${task.completed ? "line-through text-gray-500" : ""} line-clamp-2`}
+                      className={`cursor-pointer ${task.completed ? "line-through text--500" : ""} line-clamp-2`}
                       onClick={() => toggleTaskCompletion(task.id)}
                     >
                       {task.text}
@@ -104,4 +103,5 @@ const Tasklist = () => {
   );
 };
 
-export default Tasklist;
+export default MissingTasklist;
+

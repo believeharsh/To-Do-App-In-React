@@ -1,8 +1,8 @@
-import { TaskContext } from "./TaskContext";
+import { ImpTaskContext } from "./ImpTaskContext";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 
-const TaskProvider = ({ children }) => {
+const ImpTaskProvider = ({ children }) => {
   const InitialTasks = [
     { id: uuidv4(), text: "Workout", completed: false },
     { id: uuidv4(), text: "Book Reading", completed: false },
@@ -61,12 +61,12 @@ const TaskProvider = ({ children }) => {
   };
 
   return (
-    <TaskContext.Provider
+    <ImpTaskContext.Provider
       value={{ Tasks, setTasks, addTask, EditTask, deleteTask }}
     >
       {children}
-    </TaskContext.Provider>
+    </ImpTaskContext.Provider>
   );
 };
 
-export default TaskProvider;
+export default ImpTaskProvider;
