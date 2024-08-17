@@ -1,19 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.MainContainerBg{
-    @layer {
-        background: radial-gradient(89.69% 102.24% at 100% 100.11%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), radial-gradient(89.7% 115.09% at 5.43% 2.75%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)), #7a4f1c;
-        background-blend-mode: overlay, overlay, normal;
-    
-    }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .line-clamp-2 {
-    @apply overflow-hidden text-ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  .task-types{
-  @apply text-white bg-gray-700 px-3 active:bg-gray-900 cursor-pointer py-1 rounded-xl  font-thin
-  }
+  @apply overflow-hidden text-ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.task-types {
+  @apply text-white bg-gray-700 px-3 active:bg-gray-900 cursor-pointer py-1 rounded-xl  font-thin;
+}
+
+body {
+  background: url("https://img.freepik.com/premium-photo/line-white-stars-is-shown-this-image_994023-196328.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.navbar {
+  
+    backdrop-filter: blur(4px);
+    border-bottom: 0.1px solid grey;
+   
+}
+.everything-card{
+   background: transparent;
+   border: white 1px solid;
+   box-shadow: 
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5);
+}
+.navbar-buttons{
+   background: transparent;
+   border: white 1px solid;
+   box-shadow: 
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5);
+}
+.everything-card:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+    background: var(--primary);
+    box-shadow: 0 0 11px grey; 
+}

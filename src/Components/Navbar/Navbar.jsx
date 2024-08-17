@@ -1,12 +1,11 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa6";
-import { IoLogoInstagram } from "react-icons/io";
 import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   return (
     <>
-      <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-gray-800">
+      <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full  text-sm py-4  navbar">
         <nav
           className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
           aria-label="Global"
@@ -65,29 +64,15 @@ const Navbar = () => {
             className="hidden transition-all duration-[0.1ms] overflow-hidden basis-full grow sm:block"
           >
             <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-              {/* <a href="https://www.instagram.com/bontinue_/" target="_blank">
-                <IoLogoInstagram className="text-black dark:text-white text-3xl font-bold " />
-              </a>
-              <a href="https://github.com/believeharsh" target="_blank">
-                <FaGithub className="text-black dark:text-white text-3xl font-bold " />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/believeharsh11/"
-                target="_blank"
-              >
-                <FaLinkedin
-                  className="text-black dark:text-white text-3xl font-bold 
-    "
-                /> */}
-              {/* </a> */}
-              <div className="task-types">
+             
+              <div className="task-types navbar-buttons">
               <Link to="/" className="">Today</Link>
                 
               </div>
-              <div className="task-types">
+              <div className="task-types navbar-buttons">
               <Link to="/important" className="">Important</Link>
               </div>
-              <div className="task-types">
+              <div className="task-types navbar-buttons">
               <Link to="/missing" className="">Missing</Link>
               </div>
             </div>
