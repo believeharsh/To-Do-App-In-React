@@ -1,6 +1,7 @@
 import { MissingTaskContext } from "./MissingTaskContext";
 import { v4 as uuidv4 } from "uuid";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useCallback } from "react";
+import { addTask, deleteTask, editTask } from "../../../Utils/TaskUtils";
 
 const MissingTaskProvider = ({ children }) => {
   const InitialTasks = [
@@ -9,50 +10,35 @@ const MissingTaskProvider = ({ children }) => {
     { id: uuidv4(), text: "Coding", completed: false },
     { id: uuidv4(), text: "React Router Dom ", completed: false },
   ];
-  const [Tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem("tasks");
-    return !savedTasks || JSON.parse(savedTasks).length === 0
-      ? InitialTasks
-      : JSON.parse(savedTasks);
-  });
+ // Use a unique key for Missing tasks
+ const LOCAL_STORAGE_KEY = "missingTasks";
 
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(Tasks));
-  }, [Tasks]);
+ const [Tasks, setTasks] = useState(() => {
+  try {
+    const savedTasks = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedTasks ? JSON.parse(savedTasks) : InitialTasks;
+  } catch (e) {
+    console.error("Failed to parse tasks from localStorage", e);
+    return InitialTasks;
+  }
+});
 
-  const addTask = (task) => {
-    const Inlowercase = task.toLowerCase();
-    // let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    if (task.trim() !== "") {
-      // Check if the task already exists in the state
-      const alreadyExists = Tasks.some(
-        (existingTask) => existingTask.text.toLowerCase() === Inlowercase
-      );
-      if (!alreadyExists) {
-        // Create a new task object
-        const newTask = {
-          id: uuidv4(),
-          text: task,
-          completed: false,
-        };
+ useEffect(() => {
+   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(Tasks));
+ }, [Tasks]);
 
-        // Add the new task to the state
-        setTasks([...Tasks, newTask]);
-      } else {
-        alert("Task already exists!");
-      }
-    } else {
-      alert("Input field can't be empty");
-    }
-    // console.log(Tasks)
-  };
 
-  const deleteTask = (taskid) => {
+  // The use of useCallback will be beneficial if Tasks array is large or your app becomes more complex.
+  const handleAddTask = useCallback((task) => {
+    setTasks((prevTasks) => addTask(prevTasks, task));
+  }, []);
+
+  const handledeleteTask = (taskid) => {
     const filteredTasks = Tasks.filter((task) => task.id !== taskid);
     setTasks(filteredTasks);
   };
 
-  const EditTask = (taskId, newTask) => {
+  const handleEditTask = (taskId, newTask) => {
     setTasks(
       Tasks.map((task) =>
         task.id === taskId ? { ...task, text: newTask } : task
@@ -62,7 +48,7 @@ const MissingTaskProvider = ({ children }) => {
 
   return (
     <MissingTaskContext.Provider
-      value={{ Tasks, setTasks, addTask, EditTask, deleteTask }}
+      value={{ Tasks, setTasks, handleAddTask, handleEditTask, handledeleteTask }}
     >
       {children}
     </MissingTaskContext.Provider>

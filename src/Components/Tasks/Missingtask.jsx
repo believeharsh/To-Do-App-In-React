@@ -5,7 +5,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 
 const MissingTasklist = () => {
-  const { Tasks, setTasks, EditTask, deleteTask } = MissingUseTask();
+  const { Tasks, setTasks, handleEditTask, handledeleteTask } = MissingUseTask();
   const [EditTaskId, setEditTaskId] = useState(null);
   const [EditedTaskText, setEditedTaskText] = useState("");
   const inputRef = useRef(null);
@@ -16,7 +16,7 @@ const MissingTasklist = () => {
 
   const handleEditSubmit = (taskid) => {
     if (EditedTaskText !== "") {
-      EditTask(taskid, EditedTaskText);
+      handleEditTask(taskid, EditedTaskText);
       setEditTaskId(null);
       setEditedTaskText("");
     }
@@ -84,7 +84,7 @@ const MissingTasklist = () => {
                         </button>
                         <button
                           className="text-red-500 hover:text-red-600"
-                          onClick={() => deleteTask(task.id)}
+                          onClick={() => handledeleteTask(task.id)}
                         >
                           <div className="">
                             <MdDeleteOutline />

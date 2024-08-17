@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
-// import UseTask from "../Context/UseTask";
+
 import { FaPlus } from "react-icons/fa";
-const AddNewTask = ({addTask}) => {
-  // const { addTask } = UseTask();
+
+const AddNewTask = ({handleAddTask}) => {
+  // const {handleAddTask} = TodayUseTask();
+  
 
   const [inputValue, setinputValue] = useState("");
 
@@ -12,7 +14,7 @@ const AddNewTask = ({addTask}) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask(inputValue);
+    handleAddTask(inputValue);
     setinputValue("");
   };
 

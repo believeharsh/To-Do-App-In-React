@@ -2,8 +2,8 @@
 import {useContext} from 'react'
 import { MissingTaskContext } from './MissingTaskContext'
 const MissingUseTask = () => {
-    const {Tasks, setTasks, addTask , EditTask , deleteTask} = useContext(MissingTaskContext)
-  return {Tasks, setTasks, addTask , EditTask , deleteTask}
+    const {Tasks, setTasks, handleAddTask , handleEditTask , handledeleteTask} = useContext(MissingTaskContext)
+  return {Tasks, setTasks, handleAddTask , handleEditTask , handledeleteTask}
 }
 
 export default MissingUseTask ; 
