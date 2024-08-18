@@ -28,41 +28,12 @@ const TodayTaskProvider = ({ children }) => {
   }, [Tasks]);
 
   // The use of useCallback will be beneficial if Tasks array is large or your app becomes more complex.
-  // const addTask = useCallback((task) => {
-  //   const Inlowercase = task.toLowerCase();
-   
-  //   if (task.trim() !== "") {
-  //     // Check if the task already exists in the state
-  //     const alreadyExists = Tasks.some(
-  //       (existingTask) => existingTask.text.toLowerCase() === Inlowercase
-  //     );
-  //     if (!alreadyExists) {
-  //       // Create a new task object
-  //       const newTask = {
-  //         id: uuidv4(),
-  //         text: task,
-  //         completed: false,
-  //       };
-
-  //       // Add the new task to the state
-  //       setTasks([...Tasks, newTask]);
-  //     } else {
-  //       alert("Task already exists!");
-  //     }
-  //   } else {
-  //     alert("Input field can't be empty");
-  //   }
-  //   // console.log(Tasks)
-  // });
-
+  
   const handleAddTask = useCallback((task) => {
     setTasks((prevTasks) => addTask(prevTasks, task));
   }, []);
 
-  // const handledeleteTask = (taskid) => {
-  //   const filteredTasks = Tasks.filter((task) => task.id !== taskid);
-  //   setTasks(filteredTasks);
-  // };
+ 
 
   const handledeleteTask = (taskid) => {
     const filteredTasks = deleteTask(Tasks, taskid);
