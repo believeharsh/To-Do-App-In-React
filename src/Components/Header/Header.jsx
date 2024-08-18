@@ -1,17 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
-    const InitalDate = new Date();
-    let CurrentDate = {
-      date: InitalDate.getDate(),
-      month: InitalDate.getMonth() + 1,
-      year: InitalDate.getFullYear(),
-    };
+  const [tasktype, settasktype] = useState("");
+  const InitalDate = new Date();
+  let CurrentDate = {
+    date: InitalDate.getDate(),
+    month: InitalDate.getMonth() + 1,
+    year: InitalDate.getFullYear(),
+  };
+
+  const location = useLocation();
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/important":
+        settasktype("Important");
+        break;
+      case "/missing":
+        settasktype("Missing");
+        break;
+      case "/today":
+      default:
+        settasktype("Today");
+        break;
+    }
+  }, [location.pathname]);
   return (
     <>
       <div className="flex justify-between">
-        <h1 className="text-2xl font-serif mb-4 text-white">To-Do List</h1>
-        <h3 className="text-white font-serif">{`${CurrentDate.date}-${CurrentDate.month}-${CurrentDate.year}`}</h3>
+        <div className="text-2xl  mb-4 text-white font-light">{tasktype}</div>
+        <div className="text-white ">{`${CurrentDate.date}-${CurrentDate.month}-${CurrentDate.year}`}</div>
       </div>
     </>
   );
