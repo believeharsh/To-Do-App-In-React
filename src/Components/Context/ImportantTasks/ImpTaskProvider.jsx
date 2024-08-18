@@ -32,16 +32,13 @@ useEffect(() => {
   }, []);
 
   const handledeleteTask = (taskid) => {
-    const filteredTasks = Tasks.filter((task) => task.id !== taskid);
+    const filteredTasks = deleteTask(Tasks, taskid);
     setTasks(filteredTasks);
   };
 
   const handleEditTask = (taskId, newTask) => {
-    setTasks(
-      Tasks.map((task) =>
-        task.id === taskId ? { ...task, text: newTask } : task
-      )
-    );
+    const EditedTasks = editTask(Tasks, taskId, newTask )
+    setTasks(EditedTasks);
   };
 
   return (

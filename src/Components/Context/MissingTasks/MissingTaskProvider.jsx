@@ -30,20 +30,17 @@ const MissingTaskProvider = ({ children }) => {
 
   // The use of useCallback will be beneficial if Tasks array is large or your app becomes more complex.
   const handleAddTask = useCallback((task) => {
-    setTasks((prevTasks) => addTask(prevTasks, task));
+    setTasks((prevTasks) => addTask(prevTasks, task));  // here we are calling the editTask func from utils
   }, []);
 
   const handledeleteTask = (taskid) => {
-    const filteredTasks = Tasks.filter((task) => task.id !== taskid);
+    const filteredTasks = deleteTask(Tasks, taskid); // here we are calling the editTask func from utils
     setTasks(filteredTasks);
   };
 
   const handleEditTask = (taskId, newTask) => {
-    setTasks(
-      Tasks.map((task) =>
-        task.id === taskId ? { ...task, text: newTask } : task
-      )
-    );
+    const EditedTasks = editTask(Tasks, taskId, newTask ) // here we are calling the editTask func from utils
+    setTasks(EditedTasks);
   };
 
   return (
