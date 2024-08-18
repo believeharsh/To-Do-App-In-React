@@ -1,6 +1,6 @@
 <h1 align ="center">To-Do App in React and Tailwind</h1>
 
-![To-Do App ](public/Images/Readme-Image1.png)
+![To-Do App ](public/Images/Redme.png)
 
 Welcome to this Reac to-do-app, your daily tool for saving your tasks at your localhost! 📚
 
