@@ -35,10 +35,12 @@ body {
    background: transparent;
    border: white 1px solid;
    box-shadow: 
+  
    0 0 10px rgba(0, 0, 0, 0.5),
    0 0 10px rgba(0, 0, 0, 0.5),
    0 0 10px rgba(0, 0, 0, 0.5),
    0 0 10px rgba(0, 0, 0, 0.5);
+   color: white ; 
 }
 .navbar-buttons{
    background: transparent;

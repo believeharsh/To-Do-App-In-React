@@ -3,7 +3,12 @@ import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit, CiMedicalCross } from "react-icons/ci";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
-const TaskList = ({ tasks, handleEditTask, handleDeleteTask, toggleTaskCompletion }) => {
+const TaskList = ({
+  tasks,
+  handleEditTask,
+  handleDeleteTask,
+  toggleTaskCompletion,
+}) => {
   const [editTaskId, setEditTaskId] = useState(null);
   const [editedTaskText, setEditedTaskText] = useState("");
   const [panelOpenId, setPanelOpenId] = useState(null);

@@ -40,10 +40,17 @@ useEffect(() => {
     const EditedTasks = editTask(Tasks, taskId, newTask )
     setTasks(EditedTasks);
   };
+  const toggleTaskCompletion = (taskId) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
 
   return (
     <ImpTaskContext.Provider
-      value={{ Tasks, setTasks, handleAddTask, handleEditTask, handledeleteTask }}
+      value={{ Tasks, setTasks, handleAddTask, handleEditTask, handledeleteTask , toggleTaskCompletion}}
     >
       {children}
     </ImpTaskContext.Provider>
