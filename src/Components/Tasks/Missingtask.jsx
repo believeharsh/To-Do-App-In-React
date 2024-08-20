@@ -1,9 +1,9 @@
 import React from "react";
-import MissingUseTask from "../Context/MissingTasks/MissingUseTask";
 import TaskList from "./Tasklist";
+import { useMissingTask } from "../Context/MissingTasks/MissingTaskProvider";
 
 const MissingTasklist = () => {
-  const { Tasks, handleEditTask, handledeleteTask, toggleTaskCompletion } = MissingUseTask();
+  const { Tasks, handleEditTask, handledeleteTask, toggleTaskCompletion } = useMissingTask();
 
   return (
     <TaskList

@@ -17,7 +17,8 @@ const Navbar = () => {
             >
               To Do React
             </a>
-            <div className="sm:hidden">
+            // for small screens 
+            {/* <div className="sm:hidden">
               <button
                 type="button"
                 className="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-gray-700 dark:text-white dark:hover:bg-white/10"
@@ -57,24 +58,24 @@ const Navbar = () => {
                   <path d="m6 6 12 12" />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
           <div
             id="navbar-with-collapse"
             className="hidden transition-all duration-[0.1ms] overflow-hidden basis-full grow sm:block"
           >
-            <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+            <div className="Navbar-btns-div">
              
-              <div className="task-types navbar-buttons">
+              <button className="navbar-buttons">
               <Link to="/" className="">Today</Link>
                 
-              </div>
-              <div className="task-types navbar-buttons">
+              </button>
+              <button className="navbar-buttons">
               <Link to="/important" className="">Important</Link>
-              </div>
-              <div className="task-types navbar-buttons">
+              </button>
+              <button className="navbar-buttons">
               <Link to="/missing" className="">Missing</Link>
-              </div>
+              </button>
             </div>
           </div>
         </nav>

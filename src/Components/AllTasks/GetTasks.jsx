@@ -6,17 +6,17 @@ import Navbar from "../Navbar/Navbar";
 import MissingTasklist from "../Tasks/Missingtask";
 import ImportantTasklist from "../Tasks/ImportantTasks";
 import TodayTasklist from "../Tasks/TodayTasklist";
-import ImpUseTask from "../Context/ImportantTasks/ImpUseTask";
-import MissingUseTask from "../Context/MissingTasks/MissingUseTask";
-import TodayUseTask from "../Context/TodayTasks/TodayUseTask";
+import { useTodayTask } from "../Context/TodayTasks/TodayTaskProvider";
+import { useMissingTask } from "../Context/MissingTasks/MissingTaskProvider";
+import { useImpTask } from "../Context/ImportantTasks/ImpTaskProvider";
 
 const GetTasks = () => {
 
 
   const location = useLocation();
-  const { handleAddTask: handleAddTodayTask } = TodayUseTask();
-  const { handleAddTask: handleAddImportantTask } = ImpUseTask();
-  const { handleAddTask: handleAddMissingTask } = MissingUseTask();
+  const { handleAddTask: handleAddTodayTask } = useTodayTask();
+  const { handleAddTask: handleAddImportantTask } = useImpTask();
+  const { handleAddTask: handleAddMissingTask } = useMissingTask();
 
   const getAddTaskFunction = () => {
     switch (location.pathname) {

@@ -10,11 +10,8 @@
 .line-clamp-2 {
   @apply overflow-hidden text-ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   -webkit-box-orient: vertical;
-}
-.task-types {
-  @apply text-white bg-gray-700 px-3 active:bg-gray-900 cursor-pointer py-1 rounded-xl  font-thin;
 }
 
 body {
@@ -31,29 +28,64 @@ body {
     border-bottom: 0.1px solid grey;
    
 }
+
+.Navbar-btns-div{
+  @apply flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5
+}
+
+.navbar-buttons{
+  @apply text-white bg-gray-700 px-3 active:bg-gray-900 cursor-pointer py-1 rounded-xl  font-thin;
+   background: transparent;
+   border: white 1px solid;
+   box-shadow: 
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5),
+   0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .everything-card{
    background: transparent;
    border: white 1px solid;
    box-shadow: 
-  
    0 0 10px rgba(0, 0, 0, 0.5),
    0 0 10px rgba(0, 0, 0, 0.5),
    0 0 10px rgba(0, 0, 0, 0.5),
    0 0 10px rgba(0, 0, 0, 0.5);
    color: white ; 
 }
-.navbar-buttons{
-   background: transparent;
-   border: white 1px solid;
-   box-shadow: 
-   0 0 10px rgba(0, 0, 0, 0.5),
-   0 0 10px rgba(0, 0, 0, 0.5),
-   0 0 10px rgba(0, 0, 0, 0.5),
-   0 0 10px rgba(0, 0, 0, 0.5);
-}
+
 .everything-card:hover {
     transform: translateY(-2px);
     transition: transform 0.2s ease-in-out;
     background: var(--primary);
     box-shadow: 0 0 11px grey; 
+}
+
+.NewTask-input {
+  @apply bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none
+}
+
+.NewTask-Add-btn {
+  @apply bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2 py-1 mx-[1.5px]
+}
+
+.Task-input{
+  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-2  outline-none
+}
+
+.Tasklist-li {
+  @apply border border-b-[1px] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-3 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 my-1
+}
+
+.three-dot-btn {
+  @apply text-white hover:text-black  hover:bg-gray-200 rounded-full 
+}
+
+.threedot-panel{
+  @apply absolute flex justify-center items-center right-0 mt-2 bg-black text-white font-thin shadow-lg rounded-md text-sm z-10 px-2 py-2 border-white border-[1px] transition-transform duration-200
+}
+
+.threedot-panel-btns{
+    @apply  block px-1 py-1
 }

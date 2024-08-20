@@ -2,6 +2,7 @@ import { MissingTaskContext } from "./MissingTaskContext";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState,useCallback } from "react";
 import { addTask, deleteTask, editTask } from "../../../Utils/TaskUtils";
+import { useContext } from "react";
 
 const MissingTaskProvider = ({ children }) => {
   const InitialTasks = [
@@ -63,3 +64,22 @@ const MissingTaskProvider = ({ children }) => {
 };
 
 export default MissingTaskProvider;
+
+export const useMissingTask = () => {
+  const { 
+    Tasks, 
+    setTasks, 
+    handleAddTask, 
+    handleEditTask, 
+    handledeleteTask,
+    toggleTaskCompletion
+  } = useContext(MissingTaskContext);
+
+  return { 
+    Tasks, 
+    setTasks, 
+    handleAddTask, 
+    handleEditTask, 
+    handledeleteTask,
+    toggleTaskCompletion };
+};

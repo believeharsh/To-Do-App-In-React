@@ -2,6 +2,7 @@ import { TodayTaskContext } from "./TodayTaskContext";
 import { v4 as uuidv4 } from "uuid";
 import { useCallback, useEffect, useState } from "react";
 import { addTask, deleteTask, editTask } from "../../../Utils/TaskUtils";
+import { useContext } from "react";
 
 const TodayTaskProvider = ({ children }) => {
   const InitialTasks = [
@@ -28,12 +29,12 @@ const TodayTaskProvider = ({ children }) => {
   }, [Tasks]);
 
   // The use of useCallback will be beneficial if Tasks array is large or your app becomes more complex.
-  
+
   const handleAddTask = useCallback((task) => {
     setTasks((prevTasks) => addTask(prevTasks, task));
   }, []);
 
- 
+
 
   const handledeleteTask = (taskid) => {
     const filteredTasks = deleteTask(Tasks, taskid);
@@ -41,7 +42,7 @@ const TodayTaskProvider = ({ children }) => {
   };
 
   const handleEditTask = (taskId, newTask) => {
-    const EditedTasks = editTask(Tasks, taskId, newTask )
+    const EditedTasks = editTask(Tasks, taskId, newTask)
     setTasks(EditedTasks);
   };
   const toggleTaskCompletion = (taskId) => {
@@ -62,3 +63,23 @@ const TodayTaskProvider = ({ children }) => {
 };
 
 export default TodayTaskProvider;
+
+export const useTodayTask = () => {
+  const {
+    Tasks,
+    setTasks,
+    handleAddTask,
+    handleEditTask,
+    handledeleteTask,
+    toggleTaskCompletion,
+  } = useContext(TodayTaskContext);
+
+  return {
+    Tasks,
+    setTasks,
+    handleAddTask,
+    handleEditTask,
+    handledeleteTask,
+    toggleTaskCompletion,
+  };
+};

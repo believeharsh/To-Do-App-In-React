@@ -1,9 +1,9 @@
 import React from "react";
-import ImpUseTask from "../Context/ImportantTasks/ImpUseTask";
 import TaskList from "./Tasklist";
+import { useImpTask } from "../Context/ImportantTasks/ImpTaskProvider";
 
 const ImpTasklist = () => {
-  const { Tasks, handleEditTask, handledeleteTask, toggleTaskCompletion } = ImpUseTask();
+  const { Tasks, handleEditTask, handledeleteTask, toggleTaskCompletion } = useImpTask();
 
   return (
     <TaskList

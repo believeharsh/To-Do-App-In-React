@@ -73,7 +73,7 @@ const TaskList = ({
           return (
             <li
               key={task.id}
-              className={`border border-b-[1px] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-3 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 my-1 ${
+              className={` Tasklist-li ${
                 task.completed ? "bg-gray-200" : ""
               }`}
             >
@@ -85,10 +85,10 @@ const TaskList = ({
                       value={editedTaskText}
                       onChange={handleEditInputChange}
                       onKeyDown={(event) => handleKeyPress(event, task.id)}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none"
+                      className="Task-input"
                     />
                     <button
-                      className="text-green-500 hover:text-green-600 mx-2"
+                      className=""
                       onClick={() => handleEditSubmit(task.id)}
                     >
                       Save
@@ -109,31 +109,31 @@ const TaskList = ({
                   {!isEditing && (
                     <>
                       <button
-                        className="text-blue-500 hover:text-blue-600 mr-2"
+                        className="three-dot-btn"
                         onClick={() => togglePanel(task.id)}
                         ref={buttonRef}
                       >
-                        <BsThreeDotsVertical />
+                        <BsThreeDotsVertical  className="mx-1 my-1"/>
                       </button>
                       {isPanelOpen && (
                         <div
                           ref={panelRef}
-                          className="absolute flex justify-center items-center right-0 mt-2 bg-black text-white font-thin shadow-lg rounded-md text-sm z-10 px-2 py-2 border-white border-[1px] transition-transform duration-200"
+                          className="threedot-panel"
                         >
                           <button
-                            className="block px-1 py-1"
+                            className="threedot-panel-btns"
                             onClick={() => openEditPanel(task.id)}
                           >
                             <CiEdit />
                           </button>
                           <button
-                            className="block w-full px-1 py-1"
+                            className="threedot-panel-btns"
                             onClick={() => toggleTaskCompletion(task.id)}
                           >
                             <CiMedicalCross />
                           </button>
                           <button
-                            className="block px-1 py-1"
+                            className="threedot-panel-btns"
                             onClick={() => handleDeleteTask(task.id)}
                           >
                             <MdDeleteOutline />

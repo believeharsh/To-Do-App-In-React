@@ -1,9 +1,9 @@
 import React from "react";
-import TodayUseTask from "../Context/TodayTasks/TodayUseTask"
 import TaskList from "./Tasklist";
+import { useTodayTask } from "../Context/TodayTasks/TodayTaskProvider";
 
 const TodayTasklist = () => {
-  const { Tasks, handleEditTask, handledeleteTask, toggleTaskCompletion } = TodayUseTask();
+  const { Tasks, handleEditTask, handledeleteTask, toggleTaskCompletion } = useTodayTask();
 
   return (
     <TaskList
